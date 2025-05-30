@@ -66,27 +66,19 @@ La aplicación está construida con *Flutter* en el cliente y un backend en *Jav
 ---
 ## Base de datos
 
-La aplicación utiliza *MySQL* desplegado en un contenedor Docker. Al ejecutar:
+La aplicación utiliza *MySQL* desplegado en un contenedor Docker. Al ejecutar: docker-compose up -d se levanta el servicio mysql que escucha en el puerto 3306 de localhost. El volumen configurado en \docker-compose.yml\ garantiza la persistencia de los datos entre reinicios.
 
-\\\`bash
-docker-compose up -d
-\\\`
-
-se levanta el servicio \mysql\ que escucha en el puerto \3306\ de \localhost\. El volumen configurado en \docker-compose.yml\ garantiza la persistencia de los datos entre reinicios.
-
-La conexión en Spring Boot está definida en \backend/src/main/resources/application.properties\:
-
-\\\`properties
+La conexión en Spring Boot está definida en backend/src/main/resources/application.properties:
+properties
 spring.datasource.url=jdbc:mysql://localhost:3306/mi_basedatos
 spring.datasource.username=tu_usuario
 spring.datasource.password=tu_contraseña
-\\\`
+
 
 Para acceder manualmente a la base de datos:
 
-\\\`bash
+
 mysql -h 127.0.0.1 -P 3306 -u tu_usuario -p
-\\\`
 
 En entornos de producción, solo será necesario actualizar la URL de conexión en este mismo archivo.
 
