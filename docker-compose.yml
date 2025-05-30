@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_actividades
+    restart: always
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: mysql_actividades
+    networks:
+      - eventos-net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: eventos_backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - eventos-net
+
+networks:
+  eventos-net:
