@@ -61,7 +61,7 @@ La aplicación está construida con *Flutter* en el cliente y un backend en *Jav
 
 - Accede desde un dispositivo móvil o navegador web (por defecto en http://localhost:8080).
 - Navega por las categorías y ciudades para explorar eventos.
-- Haz clic en un evento para ver detalles y registrarte.
+- Haz clic en un evento para ver detalles y inscribirte.
 
 ---
 
